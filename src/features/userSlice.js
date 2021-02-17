@@ -1,13 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 // just like [userName, seruserName] = useState(null);
-
+// initial state
 const initialState = {
 	userName: null,
 	userEmail: null
 };
 
 // slice is a component of the redux app store.
+// action.payload is the result that'll get after SignIn with Google 
+// basic userName and userEmail
 const userSlice = createSlice({
 	name: "user",
 	initialState,
@@ -29,4 +31,5 @@ export const { setActiveUsers, setUserLogOutState } = userSlice.actions;
 export const selectUserName = state => state.user.userName;
 export const selectUserEmail = state => state.user.userEmail;
 
+// exporting the slice to configure Redux Store in the app/store.js
 export default userSlice.reducer;

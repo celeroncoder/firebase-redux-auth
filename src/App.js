@@ -6,12 +6,14 @@ import { setActiveUsers, setUserLogOutState, selectUserEmail, selectUserName } f
 
 function App() {
 
+	// set the state of the redux vars after some event ==> SignIn or SignOut.
 	const dispatch = useDispatch();
 
 	const userName = useSelector(selectUserName);
 	const userEmail = useSelector(selectUserEmail);
 
 	const handleSignIn = () => {
+		// auth is to trigger firebase google auth pop up menu;
 		auth.signInWithPopup(provider).then( (result) => {
 			dispatch(setActiveUsers({
 				userName: result.user.displayName,
@@ -19,6 +21,7 @@ function App() {
 			}))
 		})
 	};
+	
 	const handleSignOut = () => {
 		auth.signOut()
 		.then(() => dispatch(setUserLogOutState()))
