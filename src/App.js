@@ -21,7 +21,7 @@ function App() {
 	};
 	const handleSignOut = () => {
 		auth.signOut()
-		.then(() => dispatch(setUserLogOutState() ) )
+		.then(() => dispatch(setUserLogOutState()))
 		.catch((err) => alert(err.message));
 	};
 
